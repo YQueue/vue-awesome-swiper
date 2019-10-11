@@ -1,6 +1,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const resolve = dir => path.join(__dirname, '..', dir)
 
@@ -9,6 +10,7 @@ const env = process.env.NODE_ENV === 'testing'
   : { NODE_ENV: '"production"' }
 
 module.exports = {
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
@@ -36,8 +38,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': env
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: { warnings: false }
-    })
-  ]
+    new VueLoaderPlugin()
+  ],
+  optimization: {
+    minimize: true
+  }
 }
