@@ -15,8 +15,8 @@ describe('vue-awesome-swiper', () => {
   // 测试解构是否成功
   it('can get the object in es module', () => {
     expect(typeof install).to.deep.equal('function')
-    expect(swiper.name).to.deep.equal('swiper')
-    expect(swiperSlide.name).to.deep.equal('swiper-slide')
+    expect(swiper.name).to.deep.equal('Swiper')
+    expect(swiperSlide.name).to.deep.equal('SwiperSlide')
     expect(typeof swiperSlide.methods.update).to.deep.equal('function')
     expect(typeof swiper.methods.update).to.deep.equal('function')
     expect(typeof VueAwesomeSwiperSSR.swiper).to.deep.equal('object')
@@ -41,7 +41,7 @@ describe('vue-awesome-swiper', () => {
                   </swiper>`
       }).$mount()
       expect(vm.$el.innerText).to.deep.equal(' Slide 1 Slide 2 Slide 3 Slide 4 Slide 5 Slide 6 Slide 7 Slide 8 Slide 9 Slide 10    ')
-      expect(vm.$el.className).to.deep.equal('swiper-container swiper-container-horizontal')
+      expect(vm.$el.className).to.deep.equal('swiper-container swiper-container-initialized swiper-container-horizontal')
       expect(vm.$el.children[0].className).to.deep.equal('swiper-wrapper')
       expect(vm.$el.children[0].children.length).to.deep.equal(10)
     })
@@ -323,7 +323,7 @@ describe('vue-awesome-swiper', () => {
       expect(vm['swiper-b'].el.children[1].className).to.deep.equal('swiper-button-prev')
       expect(vm['swiper-b'].el.children[2].className).to.deep.equal('swiper-button-next')
       expect(vm['swiper-b'].el.children[3].className).to.deep.equal('swiper-pagination swiper-pagination-bullets pagi-b')
-      expect(vm['swiper-c'].el.children.length).to.deep.equal(2)
+      expect(vm['swiper-c'].el.children.length).to.deep.equal(3)
       Vue.nextTick(() => {
         expect(typeof vm['swiper-c'].slideTo).to.equal('function')
         done()
