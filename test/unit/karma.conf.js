@@ -12,7 +12,7 @@ module.exports = function (config) {
     //    http://karma-runner.github.io/0.13/config/browsers.html
     // 2. add it to the `browsers` array below.
     // 浏览器环境
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
     // 测试框架
     frameworks: ['mocha', 'sinon-chai'],
     // 输出报告
