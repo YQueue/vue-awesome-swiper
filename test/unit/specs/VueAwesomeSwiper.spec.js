@@ -233,7 +233,7 @@ describe('vue-awesome-swiper', () => {
         template: `<div>
                     <div v-swiper:mySwiper="swiperOption">
                       <div class="swiper-wrapper">
-                        <div class="swiper-slide" v-for="slide in slides">
+                        <div class="swiper-slide" v-for="(slide, index) in slides" :key="index">
                           <span>{{ slide }}</span>
                         </div>
                       </div>
@@ -301,7 +301,7 @@ describe('vue-awesome-swiper', () => {
                          v-swiper="buildOptions(key)"
                          v-for="(slides, key) in swipers">
                       <div class="swiper-wrapper">
-                        <div class="swiper-slide" :key="key" v-for="slide in slides">
+                        <div class="swiper-slide" :key="index" v-for="(slide, index) in slides">
                           <span>{{ slide }}</span>
                         </div>
                       </div>
